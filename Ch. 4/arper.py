@@ -4,7 +4,7 @@ import sys
 import threading
 import signal
 
-interface - "en1"
+interface = "en1"
 target_ip = "10.0.67.98"
 gateway_ip = "10.0.67.1"
 packet_count = 1000
@@ -16,7 +16,7 @@ def restore_target(gateway_ip, gateway_mac, target_ip, target_mac):
     print "[*] Restoring target..."
     
     send(ARP(op = 2, psrc = gateway_ip, pdst = target_ip, \
-            hwdst = "ff:ff:ff:ff:ff:ff", hwsrc = target_mac, count = 5)
+            hwdst = "ff:ff:ff:ff:ff:ff", hwsrc = target_mac), count = 5)
     
     send(ARP(op = 2, psrc = target_ip, pdst = gateway_ip, \
             hwdst = "ff:ff:ff:ff:ff:ff", hwsrc = taget_mac), count = 5)
