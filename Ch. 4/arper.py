@@ -4,7 +4,7 @@ import sys
 import threading
 import signal
 
-interface = "en1"
+interface = "en0"
 target_ip = "10.0.67.98"
 gateway_ip = "10.0.67.1"
 packet_count = 1000
