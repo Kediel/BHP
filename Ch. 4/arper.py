@@ -19,7 +19,7 @@ def restore_target(gateway_ip, gateway_mac, target_ip, target_mac):
             hwdst = "ff:ff:ff:ff:ff:ff", hwsrc = target_mac), count = 5)
     
     send(ARP(op = 2, psrc = target_ip, pdst = gateway_ip, \
-            hwdst = "ff:ff:ff:ff:ff:ff", hwsrc = taget_mac), count = 5)
+            hwdst = "ff:ff:ff:ff:ff:ff", hwsrc = target_mac), count = 5)
     
     # Signals the main thread to exit
     os.kill(os.getpid(), signal.SIGINT)
