@@ -35,7 +35,7 @@ def get_mac(ip_address):
 
     return None
 
-def poison_target(gateway_ip, gateway_mac, target_ip, target,mac):
+def poison_target(gateway_ip, gateway_mac, target_ip, target_mac):
     global poisoning
     
     poison_target = ARP()
