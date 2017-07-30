@@ -4,7 +4,8 @@ import sys
 import threading
 import signal
 
-interface = "en0"
+interface = "conf.iface"
+# Set your target and gateway IP addresses.
 target_ip = ""
 gateway_ip = ""
 packet_count = 1000
@@ -68,9 +69,6 @@ def poison_target(gateway_ip, gateway_mac, target_ip, target_mac):
     print "[*] ARP poison attack finished."
     
     return
-
-# Setup our interface
-#conf.iface = interface
 
 # Turn off output
 conf.verb = 0
