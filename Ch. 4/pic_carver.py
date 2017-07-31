@@ -16,7 +16,7 @@ def get_http_headers(http_payload):
         headers_raw = http_payload[:http_payload.index("\r\n\r\n")+2]
 
         # Break out the headers
-        headers = dict(re.finall(r"(?P<'name>.*?): (?P<value>.*?)\r\n", headers_raw))
+        headers = dict(re.findall(r"(?P<'name>.*?): (?P<value>.*?)\r\n", headers_raw))
 
     except:
 
