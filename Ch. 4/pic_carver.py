@@ -76,7 +76,7 @@ def http_assembler(pcap_file):
 
         http_payload = ""
 
-        for packet in sessions(session):
+        for packet in sessions[session]:
 
             try:
 
